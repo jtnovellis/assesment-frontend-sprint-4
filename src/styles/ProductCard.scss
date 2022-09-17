@@ -25,6 +25,13 @@
 }
 .productCard__info {
   text-align: center;
+  h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+  p {
+    margin: 5px;
+  }
 }
 .productCard__buttons {
   display: flex;
@@ -32,7 +39,7 @@
   align-items: center;
   button {
     color: rgb(94, 145, 255);
-    margin: 5px 15px;
+    margin: 10px 15px;
     border: none;
     background-color: transparent;
     border-bottom: 2px solid rgb(94, 145, 255);
