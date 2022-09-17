@@ -1,6 +1,10 @@
 .header {
   box-shadow: 0px 10px 20px #ccc;
   background-color: rgb(240, 240, 240);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .header__nav {
   height: 80px;
