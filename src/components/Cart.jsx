@@ -11,7 +11,7 @@ const Cart = () => {
       </div>
       <div className='cart__info'>
         <p>{amount}</p>
-        <p>items</p>
+        <p>{amount === 0 ? 'Empty' : 'items'}</p>
       </div>
     </div>
   );
