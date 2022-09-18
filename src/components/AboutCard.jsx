@@ -28,16 +28,20 @@ const AboutCard = () => {
               <p>Phone: +57 (300) 509-0433</p>
               <p>Email: jtnovellis88@hotmail.com</p>
               <div className='ticket--icons'>
-                <a href='https://twitter.com/JairojairtoroN'>
+                <a href='https://twitter.com/JairojairtoroN' target='blank'>
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
-                <a href='https://www.linkedin.com/in/jairo-jair-toro-novellis-03819421b/'>
+                <a
+                  href='https://www.linkedin.com/in/jairo-jair-toro-novellis-03819421b/'
+                  target='blank'>
                   <FontAwesomeIcon icon={faLinkedin} />
                 </a>
-                <a href='https://github.com/jtnovellis'>
+                <a href='https://github.com/jtnovellis' target='blank'>
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
-                <a href='https://www.instagram.com/jairojairtoro/'>
+                <a
+                  href='https://www.instagram.com/jairojairtoro/'
+                  target='blank'>
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </div>
