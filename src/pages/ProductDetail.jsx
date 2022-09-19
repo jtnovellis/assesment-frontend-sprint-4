@@ -11,6 +11,7 @@ const ProductDetail = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        // eslint-disable-next-line no-undef
         const response = await axios(`${process.env.REACT_APP_API_URL}/${id}`);
         setProductDetail(response.data);
       } catch (error) {
