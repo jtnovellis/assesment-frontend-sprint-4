@@ -20,7 +20,7 @@ const ProductCard = ({ title, price, id, image }) => {
       <div className='productCard__buttons'>
         <button onClick={addToCart}>Add to cart</button>
         <button>
-          <Link to={`/productdetail/${id}`}>Go to Details</Link>
+          <Link to={`/details/${id}`}>Go to Details</Link>
         </button>
       </div>
     </div>
