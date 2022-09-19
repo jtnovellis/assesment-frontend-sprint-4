@@ -9,7 +9,7 @@ const Header = () => {
     <header className='header'>
       <nav className='header__nav'>
         <div className='header__nav--homeIcon'>
-          <Link>
+          <Link to='/'>
             <FontAwesomeIcon icon={faHouse} />
           </Link>
         </div>

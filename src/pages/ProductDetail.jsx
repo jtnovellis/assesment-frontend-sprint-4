@@ -1,9 +1,21 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
+  const { id } = useParams();
   return (
-    <div className='productDetail'>
-      <h2>This is my product detail page</h2>
+    <div>
+      <div>
+        <p>This is an image</p>
+      </div>
+      <div>
+        <p>Title</p>
+        <p>Image</p>
+        <p>id: {id}</p>
+      </div>
+      <div>
+        <button>Add to cart</button>
+      </div>
     </div>
   );
 };
