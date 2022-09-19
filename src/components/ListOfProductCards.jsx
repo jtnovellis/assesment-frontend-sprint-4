@@ -12,7 +12,8 @@ const ListOfProductCards = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios('https://fakestoreapi.com/products');
+        // eslint-disable-next-line no-undef
+        const response = await axios(process.env.REACT_APP_API_URL);
         setProductsList(response.data);
       } catch (error) {
         console.log(error);
