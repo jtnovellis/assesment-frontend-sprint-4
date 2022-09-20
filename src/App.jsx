@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import CartDetails from './components/CartDetails';
+import CartDetails from './pages/CartDetails';
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/cart-details' element={<CartDetails />} />
         <Route path='/details/:id' element={<ProductDetail />} />
+        <Route path='/cart-details' element={<CartDetails />} />
       </Routes>
     </div>
   );

@@ -2,12 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
 
 const ListOfProductCards = () => {
   const [productsList, setProductsList] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const cartItems = useSelector(state => state.cart.items);
+  console.log(cartItems);
   useEffect(() => {
     const fetchData = async () => {
       try {
