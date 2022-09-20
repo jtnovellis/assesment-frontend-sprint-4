@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../store/cart/cartSlice';
 
 const ProductDetail = () => {
   const [productDetail, setProductDetail] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const { title, category, description, image, price } = productDetail;
+  const dispatch = useDispatch();
+
+  function addToCart() {
+    dispatch(cartActions.addItemToCart({ title, price, id, image }));
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        // eslint-disable-next-line no-undef
         const response = await axios(`${process.env.REACT_APP_API_URL}/${id}`);
         setProductDetail(response.data);
       } catch (error) {
@@ -21,6 +30,7 @@ const ProductDetail = () => {
     };
     fetchData();
   }, []);
+
   return (
     <div className='productDetail'>
       {loading ? (
@@ -45,7 +55,7 @@ const ProductDetail = () => {
                 </p>
               </div>
               <div className='productdetail__data--button'>
-                <button>Add to cart</button>
+                <button onClick={addToCart}>Add to cart</button>
               </div>
             </div>
           </div>

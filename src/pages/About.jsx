@@ -9,11 +9,15 @@ const About = () => {
         <p>
           I am a FullStack JavaScript Developer in progress with a degree in
           Master in Music with emphasis in Jazz and Popular Music. Since my last
-          5 years, I was working in music prouction with a close relationship
-          with the tech world which goes me to enrrolled to the programing
-          Bootcamp from Make It Real, During the TOP programg I have worked with
-          agile methodologies like SCRUM and other soft/hard skills that allows
-          me to become in a great developer.
+          5 years, I was working on music prouction with a closed relationship
+          with the tech world, which goes me to enrrolled to the Bootcamp
+          programing from Make It Real. Actually, I belong to the TOP program
+          v24 and I have worked with agile methodologies like SCRUM on Jira
+          during the journey and other soft/hard skills, that allows me to
+          develop software applications based on MVC architectures that defintly
+          are necesarily to keep a good performance and improve our workflow.
+          Last but not least, all there tools drives me to the right way to
+          become in a great developer.
         </p>
         <h4>Some technologies I have learned in Make It Real:</h4>
         <ul>

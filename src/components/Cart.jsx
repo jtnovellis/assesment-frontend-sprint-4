@@ -1,9 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const amount = 5;
+  const amount = useSelector(state => state.cart.total);
   return (
     <div className='cart'>
       <div className='cart__icon'>
