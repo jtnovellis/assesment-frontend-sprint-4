@@ -12,6 +12,7 @@ const CartDetails = () => {
         {cartItems.map(item => (
           <CartCard
             key={item.id}
+            id={item.id}
             quantity={item.quantity}
             image={item.image}
             title={item.title}

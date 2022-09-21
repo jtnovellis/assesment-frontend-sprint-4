@@ -7,8 +7,8 @@ import { cartActions } from '../store/cart/cartSlice';
 const ProductDetail = () => {
   const [productDetail, setProductDetail] = useState({});
   const [loading, setLoading] = useState(false);
-  const { id } = useParams();
-  const { title, category, description, image, price } = productDetail;
+  const { productId } = useParams();
+  const { title, category, description, image, price, id } = productDetail;
   const dispatch = useDispatch();
 
   function addToCart() {
@@ -19,8 +19,10 @@ const ProductDetail = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // eslint-disable-next-line no-undef
-        const response = await axios(`${process.env.REACT_APP_API_URL}/${id}`);
+        const response = await axios(
+          // eslint-disable-next-line no-undef
+          `${process.env.REACT_APP_API_URL}/${productId}`
+        );
         setProductDetail(response.data);
       } catch (error) {
         console.log(error);
