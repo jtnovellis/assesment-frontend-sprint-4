@@ -30,6 +30,11 @@ const About = () => {
           <li>Node.js</li>
           <li>SASS</li>
         </ul>
+        <a
+          href='https://github.com/jtnovellis/assesment-frontend-sprint-4'
+          target='blank'>
+          Link to GitHub Repository
+        </a>
       </div>
     </div>
   );

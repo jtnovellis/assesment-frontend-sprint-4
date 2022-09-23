@@ -3,9 +3,13 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { showAlert } from '../store/alerts/alertsSlice';
 import { cartActions } from '../store/cart/cartSlice';
+import Timer from './Timer';
 
 const ProductCard = ({ title, price, id, image }) => {
+  const random = 10;
+
   const dispatch = useDispatch();
+
   function addToCart() {
     dispatch(
       showAlert({
@@ -27,7 +31,7 @@ const ProductCard = ({ title, price, id, image }) => {
           <p>
             <b>Price:</b> ${price}
           </p>
-          <p>00:00:00</p>
+          <Timer random={random} />
         </div>
       </div>
       <div className='productCard__buttons'>
