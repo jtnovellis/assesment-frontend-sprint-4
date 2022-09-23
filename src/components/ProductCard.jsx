@@ -1,11 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { showAlert } from '../store/alerts/alertsSlice';
 import { cartActions } from '../store/cart/cartSlice';
 
 const ProductCard = ({ title, price, id, image }) => {
   const dispatch = useDispatch();
   function addToCart() {
+    dispatch(
+      showAlert({
+        active: true,
+        message: 'The product was added successfully',
+        type: 'success',
+      })
+    );
     dispatch(cartActions.addItemToCart({ title, price, id, image }));
   }
   return (
