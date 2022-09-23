@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
+import Spiner from './Spiner';
 
 const ListOfProductCards = () => {
   const [productsList, setProductsList] = useState([]);
@@ -29,7 +30,7 @@ const ListOfProductCards = () => {
   return (
     <div className='listOfProducts'>
       {loading ? (
-        <p>Loading...</p>
+        <Spiner />
       ) : (
         productsList.map(({ title, price, id, image }) => (
           <ProductCard

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../store/cart/cartSlice';
 import { showAlert } from '../store/alerts/alertsSlice';
+import Spiner from '../components/Spiner';
 
 const ProductDetail = () => {
   const [productDetail, setProductDetail] = useState({});
@@ -44,7 +45,7 @@ const ProductDetail = () => {
   return (
     <div className='productDetail'>
       {loading ? (
-        <p>Loading...</p>
+        <Spiner />
       ) : (
         <div className='cardDetail'>
           {' '}
