@@ -1,62 +1,42 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  restartSeconds,
-  setActive,
-  setMiutes,
-  setSeconds,
-  /* setActive, */
-} from '../store/timer/timerSlice';
+import React, { useState, useEffect } from 'react';
 
-const Timer = () => {
-  const minutes = useSelector(state => state.timer.minutes);
-  const seconds = useSelector(state => state.timer.seconds);
-  const active = useSelector(state => state.timer.active);
-  console.log(minutes);
-  console.log(seconds);
-  console.log(active);
-
-  const dispatch = useDispatch();
-  if (minutes === -1) {
-    dispatch(setActive(false));
+const diference = time => {
+  if (!time) {
+    return 0;
   }
-  let timer;
-  if (active) {
-    useEffect(() => {
-      timer = setInterval(() => {
-        dispatch(setSeconds());
-        if (seconds === 1) {
-          dispatch(restartSeconds(59));
-          dispatch(setMiutes());
-        }
-      }, 1000);
-      return () => clearInterval(timer);
+  const left = time - new Date().getTime();
+  if (left < 0) {
+    return 0;
+  }
+  return left;
+};
+
+const Timer = ({ setDisable }) => {
+  const startTimer =
+    new Date().getTime() + 60000 * Math.ceil(Math.random() * 20);
+  const [end] = useState(startTimer);
+  const [timeLeft, setTimeLeft] = useState(startTimer);
+
+  useEffect(() => {
+    setTimeLeft(diference(end));
+    const timer = setInterval(() => {
+      const targetLeft = diference(end);
+      setTimeLeft(targetLeft);
+      if (targetLeft === 0) {
+        clearInterval(timer);
+        setDisable(true);
+      }
     });
-  }
-  const minutesRendered = min => {
-    if (min < 1) {
-      return '00';
-    }
-    if (min < 10) {
-      return `0${minutes}`;
-    }
-    return min;
-  };
-  const secondsRendered = (min, secs) => {
-    if (min < 0) {
-      return '00';
-    }
-    if (secs < 10) {
-      return `0${seconds}`;
-    }
-    return secs;
-  };
+    return () => clearInterval(timer);
+  }, [end]);
 
+  const minutes = Math.floor(timeLeft / 60000) % 60;
+  const seconds = Math.floor(timeLeft / 1000) % 60;
   return (
     <p>
-      <span>{minutesRendered(minutes)}</span>
+      <span>{minutes < 10 ? `0${minutes}` : minutes}</span>
       <span>:</span>
-      <span>{secondsRendered(minutes, seconds)}</span>
+      <span>{seconds < 10 ? `0${seconds}` : seconds}</span>
     </p>
   );
 };

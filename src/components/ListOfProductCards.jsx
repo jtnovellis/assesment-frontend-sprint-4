@@ -2,11 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProducts } from '../store/products/productsSlice';
 import ProductCard from './ProductCard';
 import Spiner from './Spiner';
 
 const ListOfProductCards = () => {
-  const [productsList, setProductsList] = useState([]);
+  const productsList = useSelector(state => state.products.items);
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -15,15 +18,15 @@ const ListOfProductCards = () => {
         setLoading(true);
         // eslint-disable-next-line no-undef
         const response = await axios(process.env.REACT_APP_API_URL);
-        setProductsList(response.data);
+        dispatch(addProducts(response.data));
       } catch (error) {
-        console.log(error);
+        console.error(error);
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, [setProductsList]);
+  }, []);
 
   return (
     <div className='listOfProducts'>
