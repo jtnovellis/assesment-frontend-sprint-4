@@ -6,6 +6,7 @@ const CartDetails = () => {
   const cartItems = useSelector(state => state.cart.items);
   const total = useSelector(state => state.cart.total);
   const totalPrice = cartItems.reduce((a, b) => a + b.totalPrice, 0);
+
   return (
     <div className='cartdetailsContainer'>
       <div className='cartDetails'>

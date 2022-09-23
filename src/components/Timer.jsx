@@ -4,11 +4,11 @@ const diference = time => {
   if (!time) {
     return 0;
   }
-  const left = time - new Date().getTime();
-  if (left < 0) {
+  const diff = time - new Date().getTime();
+  if (diff < 0) {
     return 0;
   }
-  return left;
+  return diff;
 };
 
 const Timer = ({ setDisable }) => {

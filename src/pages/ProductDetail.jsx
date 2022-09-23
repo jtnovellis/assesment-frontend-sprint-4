@@ -13,7 +13,7 @@ const ProductDetail = () => {
   const { title, category, description, image, price, id } = productDetail;
   const dispatch = useDispatch();
 
-  function addToCart() {
+  const addToCart = () => {
     dispatch(cartActions.addItemToCart({ title, price, id, image }));
     dispatch(
       showAlert({
@@ -22,7 +22,7 @@ const ProductDetail = () => {
         type: 'success',
       })
     );
-  }
+  };
 
   useEffect(() => {
     const fetchData = async () => {

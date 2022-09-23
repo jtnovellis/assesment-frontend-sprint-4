@@ -9,7 +9,7 @@ const ProductCard = ({ title, price, id, image }) => {
   const dispatch = useDispatch();
   const [disable, setDisable] = useState(false);
 
-  function handleClick() {
+  const handleClick = () => {
     if (disable) {
       dispatch(
         showAlert({
@@ -28,7 +28,7 @@ const ProductCard = ({ title, price, id, image }) => {
       );
       dispatch(cartActions.addItemToCart({ title, price, id, image }));
     }
-  }
+  };
 
   return (
     <div className='productCard'>
