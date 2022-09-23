@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../store/cart/cartSlice';
+import { showAlert } from '../store/alerts/alertsSlice';
 
 const ProductDetail = () => {
   const [productDetail, setProductDetail] = useState({});
@@ -13,6 +14,13 @@ const ProductDetail = () => {
 
   function addToCart() {
     dispatch(cartActions.addItemToCart({ title, price, id, image }));
+    dispatch(
+      showAlert({
+        active: true,
+        message: 'The product was added successfully',
+        type: 'success',
+      })
+    );
   }
 
   useEffect(() => {
