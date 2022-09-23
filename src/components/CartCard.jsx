@@ -6,12 +6,14 @@ import { cartActions } from '../store/cart/cartSlice';
 
 const CartCard = ({ quantity, image, title, price, id }) => {
   const dispatch = useDispatch();
-  function handleMinus() {
+
+  const handleMinus = () => {
     dispatch(cartActions.removeItem(id));
-  }
-  function handlePlus() {
+  };
+  const handlePlus = () => {
     dispatch(cartActions.addItemToCart({ id, image, title, price }));
-  }
+  };
+
   return (
     <div className='cartCard'>
       <div className='cartCard__img'>

@@ -6,6 +6,7 @@ import { showAlert } from '../store/alerts/alertsSlice';
 
 const Alerts = ({ children, type }) => {
   const dispatch = useDispatch();
+
   return (
     <Stack sx={{ width: '100%', position: 'fixed' }} spacing={2}>
       <Alert
@@ -18,4 +19,5 @@ const Alerts = ({ children, type }) => {
     </Stack>
   );
 };
+
 export default Alerts;

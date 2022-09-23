@@ -9,6 +9,7 @@ import Alerts from './components/Alerts';
 
 function App() {
   const { active, message, type } = useSelector(state => state.alerts);
+
   return (
     <div className='App'>
       <Header />

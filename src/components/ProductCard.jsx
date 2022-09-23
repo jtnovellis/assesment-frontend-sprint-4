@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { showAlert } from '../store/alerts/alertsSlice';
 import { cartActions } from '../store/cart/cartSlice';
+import Timer from './Timer';
 
 const ProductCard = ({ title, price, id, image }) => {
   const dispatch = useDispatch();
-  function addToCart() {
-    dispatch(
-      showAlert({
-        active: true,
-        message: 'The product was added successfully',
-        type: 'success',
-      })
-    );
-    dispatch(cartActions.addItemToCart({ title, price, id, image }));
-  }
+  const [disable, setDisable] = useState(false);
+
+  const handleClick = () => {
+    if (disable) {
+      dispatch(
+        showAlert({
+          active: true,
+          message: 'The product could not be added - offer time is out',
+          type: 'error',
+        })
+      );
+    } else {
+      dispatch(
+        showAlert({
+          active: true,
+          message: 'The product was added successfully',
+          type: 'success',
+        })
+      );
+      dispatch(cartActions.addItemToCart({ title, price, id, image }));
+    }
+  };
+
   return (
     <div className='productCard'>
       <div className='productCard__img'>
@@ -27,11 +41,11 @@ const ProductCard = ({ title, price, id, image }) => {
           <p>
             <b>Price:</b> ${price}
           </p>
-          <p>00:00:00</p>
+          <Timer setDisable={setDisable} />
         </div>
       </div>
       <div className='productCard__buttons'>
-        <button onClick={addToCart}>Add to cart</button>
+        <button onClick={handleClick}>Add to cart</button>
         <button>
           <Link to={`/details/${id}`}>Go to Details</Link>
         </button>
