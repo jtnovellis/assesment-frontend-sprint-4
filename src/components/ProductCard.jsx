@@ -47,7 +47,7 @@ const ProductCard = ({ title, price, id, image }) => {
       <div className='productCard__buttons'>
         <button onClick={handleClick}>Add to cart</button>
         <button>
-          <Link to={`/details/${id}`}>Go to Details</Link>
+          <Link to={disable ? '' : `/details/${id}`}>Go to Details</Link>
         </button>
       </div>
     </div>
